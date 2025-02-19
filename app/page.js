@@ -4,7 +4,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FaBars, FaTimes, FaLinkedin, FaInstagram, FaFacebook, FaTwitter, FaReact, FaNodeJs, FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaLinkedin, FaInstagram, FaFacebook, FaTwitter, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaShoppingCart, FaLaptopCode, FaTools } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
 
 // Animasi untuk perubahan warna Navbar
@@ -188,6 +188,91 @@ const ContactIcon = styled.a`
     color: #1e90ff;
   }
 `;
+// Footer Section (Full Width, Sticky Bottom)
+const FooterSection = styled.footer`
+  background-color: #222;
+  color: #fff;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: auto;
+`;
+
+const FooterTitle = styled.h2`
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+`;
+
+const FooterText = styled.p`
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+`;
+
+const ContactIconsFooter = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+`;
+
+const ContactIconFooter = styled.a`
+  font-size: 28px;
+  color: #fff;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #1e90ff;
+  }
+`;
+
+const FooterInfoSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1000px;
+  width: 100%;
+  padding-top: 30px;
+`;
+
+const FooterInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 280px;
+`;
+
+const FooterInfoIcon = styled.div`
+  font-size: 45px;
+  margin-bottom: 10px;
+  color: #1e90ff;
+`;
+
+const FooterInfoText = styled.p`
+  font-size: 15px;
+  max-width: 250px;
+  opacity: 0.9;
+`;
+
+const FooterBottom = styled.div`
+  margin-top: 30px;
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid #555;
+  padding-top: 15px;
+  width: 100%;
+  opacity: 0.8;
+`;
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -197,16 +282,16 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
       {/* Header */}
       <Navbar>
         <Logo>LMS</Logo>
         <NavLinks>
-          <NavLink><Link href="/#about">About</Link></NavLink>
-          <NavLink><Link href="/#skills">Skills</Link></NavLink>
-          <NavLink><Link href="/#portfolio">Portfolio</Link></NavLink>
-          <NavLink><Link href="/#services">Services</Link></NavLink>
-          <NavLink><Link href="/#contact">Contact</Link></NavLink>
+          <NavLink><Link href="/about">About</Link></NavLink>
+          <NavLink><Link href="/skills">Skills</Link></NavLink>
+          <NavLink><Link href="/portfolio">Portfolio</Link></NavLink>
+          <NavLink><Link href="/services">Services</Link></NavLink>
+          <NavLink><Link href="/contact">Contact</Link></NavLink>
         </NavLinks>
         <MobileMenuIcon onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
@@ -215,11 +300,11 @@ export default function Home() {
 
       {/* Mobile Menu */}
       <MobileMenu show={isMenuOpen}>
-        <NavLink><Link href="/#about">About</Link></NavLink>
-        <NavLink><Link href="/#skills">Skills</Link></NavLink>
-        <NavLink><Link href="/#portfolio">Portfolio</Link></NavLink>
-        <NavLink><Link href="/#services">Services</Link></NavLink>
-        <NavLink><Link href="/#contact">Contact</Link></NavLink>
+        <NavLink><Link href="/about">About</Link></NavLink>
+        <NavLink><Link href="/skills">Skills</Link></NavLink>
+        <NavLink><Link href="/portfolio">Portfolio</Link></NavLink>
+        <NavLink><Link href="/services">Services</Link></NavLink>
+        <NavLink><Link href="/contact">Contact</Link></NavLink>
       </MobileMenu>
 
       {/* Content Sections */}
@@ -262,7 +347,6 @@ export default function Home() {
           <SectionText>
             Here are some of the projects I've worked on, showcasing my coding abilities and creativity.
           </SectionText>
-          {/* Example portfolio items */}
           <CardContainer>
             <Card>
               <CardTitle>Project 1</CardTitle>
@@ -287,28 +371,51 @@ export default function Home() {
             <li>Consultancy and Mentorship</li>
           </ul>
         </section>
-
-        <section id="contact">
-          <SectionTitle>Contact</SectionTitle>
-          <SectionText>
-            Feel free to reach out for collaboration opportunities, inquiries, or just a friendly chat about technology!
-          </SectionText>
-          <ContactIcons>
-            <ContactIcon href="https://www.linkedin.com" target="_blank">
-              <FaLinkedin />
-            </ContactIcon>
-            <ContactIcon href="https://www.instagram.com" target="_blank">
-              <FaInstagram />
-            </ContactIcon>
-            <ContactIcon href="https://www.facebook.com" target="_blank">
-              <FaFacebook />
-            </ContactIcon>
-            <ContactIcon href="https://www.twitter.com" target="_blank">
-              <FaTwitter />
-            </ContactIcon>
-          </ContactIcons>
-        </section>
       </PageContent>
+
+      {/* Footer Section */}
+      <FooterSection>
+        <FooterTitle>Contact</FooterTitle>
+        <FooterText>
+          Feel free to reach out for collaboration opportunities, inquiries, or just a friendly chat about technology!
+        </FooterText>
+        <ContactIconsFooter>
+          <ContactIconFooter href="https://www.linkedin.com" target="_blank">
+            <FaLinkedin />
+          </ContactIconFooter>
+          <ContactIconFooter href="https://www.instagram.com" target="_blank">
+            <FaInstagram />
+          </ContactIconFooter>
+          <ContactIconFooter href="https://www.facebook.com" target="_blank">
+            <FaFacebook />
+          </ContactIconFooter>
+          <ContactIconFooter href="https://www.twitter.com" target="_blank">
+            <FaTwitter />
+          </ContactIconFooter>
+        </ContactIconsFooter>
+
+        {/* Additional Info in Footer */}
+        <FooterInfoSection>
+          <FooterInfoBox>
+            <FooterInfoIcon>
+              <FaShoppingCart color="#fff" size={40} />
+            </FooterInfoIcon>
+            <FooterInfoText>E-Commerce Solutions</FooterInfoText>
+          </FooterInfoBox>
+          <FooterInfoBox>
+            <FooterInfoIcon>
+              <FaLaptopCode color="#fff" size={40} />
+            </FooterInfoIcon>
+            <FooterInfoText>Custom Web Development</FooterInfoText>
+          </FooterInfoBox>
+          <FooterInfoBox>
+            <FooterInfoIcon>
+              <FaTools color="#fff" size={40} />
+            </FooterInfoIcon>
+            <FooterInfoText>UI/UX Design Services</FooterInfoText>
+          </FooterInfoBox>
+        </FooterInfoSection>
+      </FooterSection>
     </div>
   );
 }
